@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>릴스 아이디어 생성기 MVP</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto; 
+            max-width: 600px; 
+            margin: 50px auto; 
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .btn { 
+            background: #007bff; 
+            color: white; 
+            padding: 15px 30px; 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .btn:hover { background: #0056b3; }
+        .result { 
+            background: #f8f9fa; 
+            padding: 20px; 
+            margin-top: 20px; 
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+        .loading { 
+            display: none; 
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎬 릴스 아이디어 자동 생성기</h1>
+    <p>최신 트렌드를 분석해서 바이럴 가능성 높은 릴스 아이디어를 자동으로 생성합니다.</p>
+    
+    <button class="btn" onclick="generateIdeas()">✨ 아이디어 생성하기</button>
+    
+    <div class="loading" id="loading">
+        🤖 AI가 트렌드를 분석하고 있습니다...<br>
+        <small>(30초~1분 정도 소요됩니다)</small>
+    </div>
+    
+    <div id="result" class="result" style="display:none;">
+        <h3>🎯 생성된 릴스 아이디어</h3>
+        <div id="content"></div>
+    </div>
+
+    <script>
+        async function generateIdeas() {
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('result').style.display = 'none';
+            
+            // 임시로 테스트용 텍스트 표시 (내일 실제 API 연결)
+            setTimeout(() => {
+                document.getElementById('content').innerHTML = `
+                    <h4>💡 아이디어 #1: "직장인 점심메뉴 5초 결정법"</h4>
+                    <p><strong>구성:</strong> 앱으로 메뉴 랜덤 선택하는 모습</p>
+                    <p><strong>예상 해시태그:</strong> #직장인 #점심고민 #꿀팁 #메뉴추천</p>
+                    <p><strong>음원 스타일:</strong> 경쾌한 일렉트로닉</p>
+                    <hr>
+                    <p><small>⚠️ 현재 테스트 모드입니다. 내일부터 실제 AI 생성됩니다!</small></p>
+                `;
+                document.getElementById('result').style.display = 'block';
+                document.getElementById('loading').style.display = 'none';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
